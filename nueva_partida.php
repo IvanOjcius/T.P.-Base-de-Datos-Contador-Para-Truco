@@ -32,14 +32,19 @@
         .contenedor-fosforos {
             display: flex;
             flex-direction: column;
-            align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-content: center;
             gap: 10px;
-            min-height: 150px;
+            height: 135px;
+            width: auto;
+            min-width: 70px;
             margin: 15px 0;
-            background: #f9f9f9;
-            border: 1px solid #ccc;
             padding: 10px;
-        }
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: inset 0 0 5px rgba(0,0,0,0.1);
+}
         canvas {
             background-color: #fff;
             border-radius: 4px;
@@ -78,7 +83,7 @@
 
     </div>
 
-    <a href="anotador.html" style="margin-top: 20px; display: inline-block;">
+    <a href="index.html" style="margin-top: 20px; display: inline-block;">
         <button type="button">Volver al Inicio</button>
     </a>
 

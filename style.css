@@ -1,10 +1,12 @@
 :root { 
     --accent: #000000; 
+    --card-bg: rgba(255, 255, 255, 0.2);
 }
 
 body, button, input, label, .config {
     font-family: 'Times New Roman', Times, serif;
 }
+
 body {
     background-image: linear-gradient(135deg, #000000, #fdfdfd);
     min-height: 100vh; 
@@ -16,12 +18,14 @@ body {
     padding: 10px;
     box-sizing: border-box;
 }
+
 h1 {
-     color: #fffdfd;
+    color: #fffdfd;
     font-size: 28px; 
     margin: 0 0 15px 0; 
     text-align: center;
 }
+
 button {
     background-color: var(--accent); 
     color: #fffdfd; 
@@ -34,34 +38,27 @@ button {
     border-radius: 8px;
     cursor: pointer;
 }
-button:active { transform: scale(0.98); }
-a { text-decoration: none; display: block; }
-.bloque-checkbox, header { text-align: center; margin: 10px 0; }
-.config { margin-top: 5px; font-size: 1rem; font-weight: bold; color: #555555; }
-input[type="checkbox"] {
-    accent-color: #22a01e; 
-    transform: scale(1.3);  
-    margin-right: 8px;     
-    cursor: pointer;
+
+button:active { 
+    transform: scale(0.98); 
 }
-label {
-    color: #000000;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
+
+a { 
+    text-decoration: none; 
+    display: block; 
 }
+
 .tablero {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px; /* Espacio para que la línea quede cómoda en el medio */
-    width: auto; 
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
     background: var(--card-bg);
-    padding: 20px 40px;
+    padding: 20px 30px;
     border-radius: 12px;
-    box-sizing: border-box;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    position: relative; /* Necesario para ubicar la línea */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
 }
+
 .tablero::after {
     content: "";
     position: absolute;
@@ -69,56 +66,65 @@ label {
     top: 10%;
     transform: translateX(-50%);
     width: 2px;
-    height: 80%; /* Ocupa el centro vertical del tablero */
+    height: 80%;
     background-color: var(--accent);
 }
+
 .equipo {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 180px; /* Se alinea justo al ancho de tus botones */
+    width: auto;
+    min-width: 180px;
 }
-.equipo h2 {
-    margin: 0;
-    padding-bottom: 10px; /* Despega el texto de la línea */
-    border-bottom: 2px solid #000000; /* Tu línea horizontal bordó */
-    width: 140%; /* Obliga a la línea a ocupar todo el ancho de su columna */
-    text-align: center;
-}
-.nombre {
-    font-size: 1.3rem;
+
+.nombre-equipo {
+    font-size: 1.5em;
     font-weight: bold;
-    margin-bottom: 5px;
     border: none;
-    background: transparent;
-    color: #000000;
+    border-bottom: 2px dashed #000;
     text-align: center;
-    width: 100%;
-}
-.puntos-numero {
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: var(--accent);
-}
-.fosforos-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 8px;
-    min-height: 100px;
-    width: 100%;
-    max-width: 150px;
-    margin: 15px 0;
+    width: 90%;
+    margin-bottom: 10px;
     padding: 5px;
-    background: rgba(148, 16, 16, 0.05);
-    border-radius: 8px;
+    background: transparent;
+    color: #000;
 }
-.grupo-5 { position: relative; width: 35px; height: 35px; margin: auto; }
-.linea { position: absolute; background-color: #ff9f43; border-radius: 2px; transition: all 0.2s; }
-.l1 { top: 0; left: 0; width: 100%; height: 4px; }
-.l2 { top: 0; right: 0; width: 4px; height: 100%; }
-.l3 { bottom: 0; left: 0; width: 100%; height: 4px; }
-.l4 { top: 0; left: 0; width: 4px; height: 100%; }
-.l5 { top: 0; left: 0; width: 140%; height: 4px; transform: rotate(45deg); transform-origin: top left; }
+
+.nombre-equipo:focus {
+    outline: none;
+    border-bottom: 2px solid #000;
+}
+
+.contenedor-fosforos {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    gap: 10px;
+    height: 135px;
+    width: auto;
+    min-width: 70px;
+    margin: 15px 0;
+    padding: 10px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.1);
+}
+
+canvas {
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.contenedor, .contenedor-historial {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .historial {
     width: 100%;
     max-width: 440px; 
@@ -129,6 +135,7 @@ label {
     box-sizing: border-box;
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
+
 .historial h2 {
     font-size: 1.1rem;
     margin: 0 0 10px 0;
@@ -138,6 +145,7 @@ label {
     font-weight: bold;
     text-align: center;
 }
+
 .partida-row {
     display: flex;
     justify-content: space-between;
@@ -147,5 +155,7 @@ label {
     font-size: 0.95rem;
     color: #000000;
 }
+
 .partida-row:last-child { border-bottom: none; }
 .ganador { color: #22a01e; font-weight: bold; }
+.marcador-global { color: #ffffff; font-weight: bold; margin-bottom: 15px; }

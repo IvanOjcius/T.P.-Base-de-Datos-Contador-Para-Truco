@@ -50,7 +50,7 @@ if ($result && $result->num_rows > 0) {
         <?php endforeach; ?>
     </div>
 
-    <a href="anotador.html" style="margin-top: 20px;">
+    <a href="index.html" style="margin-top: 20px;">
         <button type="button">Volver al Inicio</button>
     </a>
 </div>
