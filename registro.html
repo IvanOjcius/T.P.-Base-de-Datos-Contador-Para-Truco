@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - Anotador de Truco</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="contenedor login-contenedor">
+    <h1>Crear Cuenta</h1>
+    
+    <form action="registro.php" method="POST" class="formulario-login" onsubmit="return validarContrasenas()">
+        
+        <div class="grupo-input">
+            <label for="nuevo_usuario">Nombre de usuario</label><br>
+            <input type="text" id="nuevo_usuario" name="nuevo_usuario" class="input-caja" placeholder="JuanPerez" required>
+        </div>
+        
+        <div class="grupo-input">
+            <label for="nueva_contrasena">Contraseña</label><br>
+            <input type="password" id="nueva_contrasena" name="nueva_contrasena" class="input-caja" placeholder="Contraseña123" required>
+        </div>
+
+        <div class="grupo-input">
+            <label for="confirmar_contrasena">Confirmar contraseña</label><br>
+            <input type="password" id="confirmar_contrasena" name="confirmar_contrasena" class="input-caja" placeholder="Contraseña123" required>
+        </div>
+        <div id="mensaje-error" class="mensaje-error">
+            Las contraseñas no coinciden.
+        </div>
+
+        <button type="submit">Registrarse</button>
+    </form>
+
+    <a href="iniciodesesion.html">
+        <button type="button">Volver al Inicio</button>
+    </a>
+</div>
+
+<script>
+    function validarContrasenas() {
+        var p1 = document.getElementById("nueva_contrasena").value;
+        var p2 = document.getElementById("confirmar_contrasena").value;
+        var mensajeError = document.getElementById("mensaje-error");
+
+        if (p1 !== p2) {
+            mensajeError.style.display = "block"; 
+            return false; 
+        }
+        
+        mensajeError.style.display = "none"; 
+        return true; 
+    }
+</script>
+
+</body>   
+</html>
